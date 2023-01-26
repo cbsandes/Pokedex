@@ -1,0 +1,23 @@
+<form action="buscar" method="POST">
+    <input placeholder= "Buscar Pokemon" name="nome" type="text">
+    <button type="submit" name="buscar">Buscar</button>
+</form>
+{% if pokemon != None %}
+    <h3>{{pokemon.nome}} - {{pokemon.id}}</h3>
+    <img src="{{pokemon.foto}}"><br>
+    <label>{{pokemon.tipo1}}</label>
+    <label>| {{pokemon.tipo2}}</label>
+    <hr>
+    <ul>{% for item in pokemon.evolutions %}
+        <li><img src="{{item}}" width="150" height="150"></li>
+    {% endfor %}</ul>
+    <hr>
+    <label>Abilities</label>
+    <p>{{pokemon.abilities}}</p>
+    <hr>
+    <label>Golpes</label>
+    <p>{{pokemon.golpes}}</p>
+    <hr>
+{% else %}
+    <h3>Pokemon não encontrado</h3>
+{% endif %}
